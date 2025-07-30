@@ -1,0 +1,727 @@
+/* General Styling */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --accent-color: #28a745; /* Green for success/highlight */
+    --text-color: #333;
+    --light-text-color: #fff;
+    --background-light: #f8f9fa;
+    --background-dark: #343a40;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: darken(var(--primary-color), 10%); /* This would need SCSS/JS for actual darken() */
+    filter: brightness(0.9); /* CSS equivalent for hover effect */
+}
+
+ul {
+    list-style: none;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.primary-btn:hover {
+    background-color: darken(var(--primary-color), 10%);
+    filter: brightness(0.9);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+/* Header */
+header {
+    background-color: var(--card-bg);
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+header nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hamburger-menu {
+    display: none; /* Hidden by default, shown on mobile */
+    font-size: 1.8rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #e0f2f7, #c1e4f3); /* Light gradient background */
+    padding: 80px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    min-height: 600px;
+}
+
+.hero-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.booking-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin-top: 30px;
+}
+
+.tab-selector {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-button {
+    flex: 1;
+    padding: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-button:hover:not(.active) {
+    color: var(--text-color);
+}
+
+.form-fields {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-fields.active {
+    display: flex;
+}
+
+.form-fields input[type="text"],
+.form-fields input[type="datetime-local"],
+.form-fields input[type="number"] {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.form-fields input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.booking-form .primary-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* Info Section (How It Works, Testimonials) */
+.info-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.info-section.light-bg {
+    background-color: var(--background-light);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.step {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.step i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.step p {
+    color: var(--secondary-color);
+    line-height: 1.8;
+}
+
+/* Card Section (Services) */
+.card-section {
+    padding: 80px 0;
+    background-color: var(--background-light);
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card i {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+/* Text-Image Section (About Us) */
+.text-image-section {
+    padding: 80px 0;
+    background-color: var(--card-bg);
+}
+
+.text-image-section .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.about-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-content h2 {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-left: 0;
+}
+
+.about-content h2::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.testimonial-card h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background-color: var(--background-dark);
+    color: var(--light-text-color);
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: var(--light-text-color);
+}
+
+.footer-column p,
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a:hover {
+    color: var(--light-text-color);
+}
+
+.footer-column .fa-map-marker-alt,
+.footer-column .fa-envelope,
+.footer-column .fa-phone {
+    margin-right: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--light-text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-bottom: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-image {
+        order: -1; /* Puts image above content on smaller screens */
+    }
+
+    .text-image-section .container {
+        flex-direction: column;
+    }
+
+    .about-content h2 {
+        text-align: center;
+    }
+
+    .about-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    header nav ul {
+        display: none; /* Hide regular menu on smaller screens */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--card-bg);
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        box-shadow: var(--shadow);
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    header nav ul.active {
+        display: flex;
+    }
+
+    header nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    header nav ul li a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+    }
+
+    .nav-buttons {
+        display: none; /* Hide buttons on small screens, can be moved to menu */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger icon */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .booking-form {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .steps, .service-cards, .testimonials-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step, .service-card, .testimonial-card {
+        width: 90%; /* Adjust width for better fit on small screens */
+        max-width: 400px; /* Limit max width even when full width */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-column ul {
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        display: inline-block; /* Make list items inline for better mobile appearance */
+        margin: 5px 10px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .booking-form .tab-button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    .form-fields input {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+}
+/* Existing CSS... */
+
+/* New: Trip Type Selection Styling */
+.trip-type-selection {
+    display: flex;
+    justify-content: center; /* Center the radio buttons */
+    gap: 20px; /* Space between radio button groups */
+    margin-bottom: 25px; /* Space below this section */
+    background-color: var(--background-light); /* Light background for the selection */
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color); /* Light border */
+}
+
+.trip-type-selection label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.trip-type-selection label:hover {
+    color: var(--primary-color);
+}
+
+.trip-type-selection input[type="radio"] {
+    margin-right: 10px;
+    /* Customizing radio button appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    top: 1px; /* Adjust vertical alignment */
+    transition: all 0.2s ease;
+}
+
+.trip-type-selection input[type="radio"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.trip-type-selection input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--light-text-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* New: Utility class for hiding elements */
+.hidden {
+    display: none !important;
+}
+
+/* Rest of your existing CSS... */

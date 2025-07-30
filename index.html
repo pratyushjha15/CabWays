@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab & Driver Booking - YourService</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">YourService</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn primary-btn">Login</button>
+                <button class="btn secondary-btn">Sign Up</button>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Your Journey, Your Way.</h1>
+                    <p>Book a Cab or Just a Professional Driver – Safe, Reliable, On-Demand.</p>
+                    <div class="booking-form">
+                        <div class="tab-selector">
+                            <button class="tab-button active" data-tab="cab">Book a Cab</button>
+                            <button class="tab-button" data-tab="driver">Book a Driver Only</button>
+                        </div>
+                        <div class="form-fields cab-fields active" data-tab-content="cab">
+                            <div class="trip-type-selection">
+                                <label>
+                                    <input type="radio" name="tripType" value="oneWay" checked> One Way
+                                </label>
+                                <label>
+                                    <input type="radio" name="tripType" value="roundTrip"> Round Trip
+                                </label>
+                            </div>
+                            <input type="text" placeholder="Pickup Location">
+                            <input type="text" placeholder="Destination">
+                            <input type="datetime-local" placeholder="Date & Time" id="pickupDateTime">
+                            <input type="datetime-local" placeholder="Return Date & Time (Optional)" id="returnDateTime" class="hidden"> <button class="btn primary-btn">Find Cab</button>
+                        </div>
+                        <div class="form-fields driver-fields" data-tab-content="driver">
+                            <input type="text" placeholder="Your Location">
+                            <input type="text" placeholder="Car Type (e.g., Sedan, SUV)">
+                            <input type="datetime-local" placeholder="Date & Time">
+                            <input type="number" placeholder="Duration (hours)" min="1">
+                            <button class="btn primary-btn">Find Driver</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/600x400?text=Cab+and+Driver+Booking" alt="Cab and Driver Booking Service">
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="info-section">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>1. Choose Service</h3>
+                        <p>Select whether you need a full cab or just a professional driver.</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>2. Enter Details</h3>
+                        <p>Provide your pickup/location, destination, and desired time.</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-car"></i>
+                        <h3>3. Confirm & Go</h3>
+                        <p>Get instant confirmation and enjoy a seamless journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="card-section">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <i class="fas fa-taxi"></i>
+                        <h3>Book a Cab</h3>
+                        <p>Seamlessly book a comfortable and safe cab for any journey, local or outstation.</p>
+                        <button class="btn secondary-btn">Book Now</button>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Book a Driver Only</h3>
+                        <p>Have your own car? Book a professional, verified driver to take the wheel.</p>
+                        <button class="btn secondary-btn">Find Driver</button>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-business-time"></i>
+                        <h3>Corporate Bookings</h3>
+                        <p>Reliable transportation solutions for businesses and their employees.</p>
+                        <button class="btn secondary-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="text-image-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2>About YourService</h2>
+                    <p>At YourService, we're revolutionizing personal transportation by offering unprecedented flexibility. Our platform is designed to cater to all your needs, whether you require a full cab service for a hassle-free ride or simply a highly skilled driver to navigate your own vehicle.</p>
+                    <p>We pride ourselves on our rigorous driver verification process, commitment to safety, and transparent pricing. Our goal is to provide a reliable, efficient, and comfortable experience every time you choose us. Join thousands of satisfied customers who trust YourService for their daily commutes, special occasions, and everything in between.</p>
+                    <button class="btn primary-btn">Learn More</button>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x350?text=About+Us" alt="About Our Service">
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="info-section light-bg">
+            <div class="container">
+                <h2>What Our Customers Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"YourService made my travel so easy. The driver was professional and the car was spotless!"</p>
+                        <h4>- Priya S.</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The 'driver only' option is a game-changer! Perfect for when I don't want to drive my own car."</p>
+                        <h4>- Rahul K.</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Excellent service and very punctual. Highly recommend for both cab and driver bookings."</p>
+                        <h4>- Anjali D.</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>YourService</h3>
+                    <p>Your ultimate platform for cab and professional driver bookings.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Gandhinagar, India</p>
+                    <p><i class="fas fa-envelope"></i> info@yourservice.com</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 YourService. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab switching logic (existing)
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.form-fields');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.dataset.tab;
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        if (content.dataset.tabContent === targetTab) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Hamburger menu logic (existing)
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navUl = document.querySelector('header nav ul');
+
+            hamburger.addEventListener('click', () => {
+                navUl.classList.toggle('active');
+            });
+
+            // New: One-Way/Round-Trip Logic
+            const tripTypeRadios = document.querySelectorAll('input[name="tripType"]');
+            const returnDateTimeInput = document.getElementById('returnDateTime');
+
+            tripTypeRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'roundTrip') {
+                        returnDateTimeInput.classList.remove('hidden');
+                        returnDateTimeInput.setAttribute('required', 'true'); // Make it required for round trip
+                    } else {
+                        returnDateTimeInput.classList.add('hidden');
+                        returnDateTimeInput.removeAttribute('required'); // Remove required for one way
+                        returnDateTimeInput.value = ''; // Clear the value when hidden
+                    }
+                });
+            });
+
+            // Ensure return date is hidden initially on page load if 'oneWay' is default
+            if (document.querySelector('input[name="tripType"][value="oneWay"]').checked) {
+                returnDateTimeInput.classList.add('hidden');
+                returnDateTimeInput.removeAttribute('required');
+            }
+        });
+    </script>
+</body>
+</html>
